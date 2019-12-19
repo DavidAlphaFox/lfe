@@ -79,7 +79,7 @@ expand_expr_1([Name|_]=Call, Env) when is_atom(Name) ->
         no -> no
     end;
 expand_expr_1(_, _) -> no.
-
+%% 进行宏展开
 expand_expr([Name|_]=Call, Env) when is_atom(Name) ->
     St0 = default_state(false, false),
     case exp_macro(Call, Env, St0) of
@@ -119,7 +119,7 @@ do_forms(Fs0, Env0, St0) ->
         [] -> {ok,Fs1,Env1,St1#mac.warnings};    %No errors
         Es -> {error,Es,St1#mac.warnings}
     end.
-
+%% 默认状态
 default_state(Deep, Keep) ->
     #mac{deep=Deep,keep=Keep,line=1,file="-no-file-",opts=[],ipath=["."]}.
 
@@ -454,7 +454,7 @@ exp_list(Es, Env, St) ->
 %% exp_tail(Tail, Env, State) -> {Etail,State}.
 %% exp_tail(ExpFun, Tail, Env, State) -> {Etail,State}.
 %%  Expand the tail of a list, need not be a proper list.
-
+%% 展开结尾的单元格
 exp_tail(Tail, Env, St) ->
     exp_tail(fun exp_form/3, Tail, Env, St).
 

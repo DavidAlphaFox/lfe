@@ -98,7 +98,7 @@
 %%  definition with the same name and arity. Functions are kept an
 %%  orddict with the name as key and the value is either the macro
 %%  definition or a dict of arity definition.
-
+%% 创建全新的lfe执行环境
 new() -> #env{vars=?NEW(),funs=?NEW()}.
 
 -ifdef(HAS_MAPS).

@@ -102,9 +102,9 @@ eval(E, Env) -> expr(E, Env).
 expr(E) -> expr(E, lfe_env:new()).
 
 expr(E, Env) ->
-    Exp = lfe_macro:expand_expr_all(E, Env),
+    Exp = lfe_macro:expand_expr_all(E, Env), %% 先展开所有的宏
     %% lfe_io:fwrite("e: ~p\n", [{E,Exp,Env}]),
-    eval_expr(Exp, Env).
+    eval_expr(Exp, Env). %% 对expr进行eval
 
 %% literal(Literal) -> Value.
 %% literal(Literal, Env) -> Value.
