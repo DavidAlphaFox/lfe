@@ -121,7 +121,7 @@ parse2(Ts, [{reduce,R}|St], Vs0) ->
     end;
 parse2(Ts, [], Vs) -> {done,Ts,[],Vs};          %All done
 parse2([T|Ts]=Ts0, [S|St]=St0, Vs) ->
-    %% io:fwrite("p3: ~p\n", [{Ts0,St0,Vs}]),
+    %io:fwrite("p3: ~p\n", [{Ts0,St0,Vs}]),
     %% Try to match token type against state on stack.
     case type(T) of
         S -> parse2(Ts, St, [T|Vs]);                %Match

@@ -162,7 +162,7 @@ read_line_1(Io, P, C0, L0) ->
 %%  input and parses a sexpr. If there are enough characters then it
 %%  returns {done,...} else {cont,Cont} if it needs more characters.
 %%  This is continued until a sexpr has been scanned.
-
+%% 扫描sexpr
 scan_sexpr([], Cs) ->
     scan_sexpr({[],[]}, Cs, 1).
 
